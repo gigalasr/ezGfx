@@ -6,7 +6,7 @@
 #include <fstream>
 #include <vector>
 
-namespace ez::gfx {
+namespace ez {
 	Font::Font(const std::string& file, const Ref<RenderAPI>& device) {
         m_texture = device->create_texture_array(32, 32, Format::RGBA, Filter::LINEAR);
 

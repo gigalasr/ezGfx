@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-namespace ez::gfx {
+namespace ez {
     class StreamStorage {
     public:
         virtual ~StreamStorage() = default;

@@ -6,7 +6,7 @@
 #include <memory>
 #include <string>
 
-namespace ez::gfx {
+namespace ez {
 	class Font {
 	public:
 		Font(const std::string& file, const Ref<RenderAPI>& texture);

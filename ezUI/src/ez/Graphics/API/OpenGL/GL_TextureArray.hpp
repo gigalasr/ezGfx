@@ -4,7 +4,7 @@
 
 #include <glad/gl.h>
 
-namespace ez::gfx {
+namespace ez {
 	class GL_TextureArray : public TextureArray {
 	public:
 		GL_TextureArray(uint32_t width, uint32_t height, Format format, Filter filter);

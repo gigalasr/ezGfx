@@ -2,7 +2,7 @@
 
 #include "ez/Core/StrongHandle.hpp"
 
-namespace ez::gfx {
+namespace ez {
     EZ_MAKE_STRONG_HANDLE(Layer);
 
     class TextureArray {

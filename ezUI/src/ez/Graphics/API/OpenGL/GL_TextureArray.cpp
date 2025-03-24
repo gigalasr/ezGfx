@@ -3,7 +3,7 @@
 
 #include <glad/gl.h>
 
-namespace ez::gfx {
+namespace ez {
 	static GLenum texture_format_to_native(Format format) {
 		switch (format) {
             case Format::RGB:   return GL_RGB;

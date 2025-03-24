@@ -1,6 +1,6 @@
 #include "ez/Graphics/Renderer/Color.hpp"
 
-namespace ez::gfx {
+namespace ez {
     Color::Color(uint8_t brightness) : r(brightness), g(brightness), b(brightness), a(255) {}
     Color::Color(uint8_t r, uint8_t g, uint8_t b, uint8_t a) : r(g), g(g), b(b), a(a) {}
     Color::Color(uint8_t r, uint8_t g, uint8_t b) : r(g), g(g), b(b), a(255) {}

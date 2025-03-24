@@ -11,7 +11,7 @@
 #include <glm/glm.hpp>
 #include <initializer_list>
 
-namespace ez::gfx {
+namespace ez {
 	enum class API {
 		NONE = 0,
 		OPENGL
@@ -21,7 +21,7 @@ namespace ez::gfx {
 	public:
 		virtual ~RenderAPI() = default;
 
-		static std::shared_ptr<RenderAPI> create(ez::gfx::API api);
+		static std::shared_ptr<RenderAPI> create(ez::API api);
 
 		virtual Ref<Shader>			create_shader(const std::initializer_list<std::pair<Shader::Type, const std::string&>>& shaders) = 0;
 		virtual Ref<StreamStorage>	create_stream_storage(uint32_t count, uint32_t stride) = 0;

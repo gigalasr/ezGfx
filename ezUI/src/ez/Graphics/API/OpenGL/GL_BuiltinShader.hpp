@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace ez::gfx {
+namespace ez {
 	const std::string GL_QUAD_VERTEX_SHADER = R"(
 		#version 450 core
 

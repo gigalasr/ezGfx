@@ -1,7 +1,7 @@
 #pragma once
 #include "ez/Graphics/API/RenderAPI.hpp"
 
-namespace ez::gfx {
+namespace ez {
 	class GL_API : public RenderAPI {
 	public:
 		GL_API();

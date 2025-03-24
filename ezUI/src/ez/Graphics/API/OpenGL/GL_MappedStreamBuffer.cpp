@@ -4,7 +4,7 @@
 #include <glad/gl.h>
 #include <cstring>
 
-namespace ez::gfx {
+namespace ez {
 	GL_MappedStreamBuffer::GL_MappedStreamBuffer(GLenum bufferType, uint32_t count, uint32_t stride) {
         m_data = nullptr;
         m_type = bufferType;

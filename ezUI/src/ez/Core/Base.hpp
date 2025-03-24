@@ -41,6 +41,7 @@ namespace ez {
 #define EZ_CORE_WARN(...)			ez::Logger::log_core(ez::Logger::Level::WARNING, __VA_ARGS__)
 #define EZ_CORE_ERROR(...)			ez::Logger::log_core(ez::Logger::Level::ERROR, __VA_ARGS__);
 #define EZ_CORE_FATAL_ERROR(...) EZ_CORE_ERROR(__VA_ARGS__); EZ_CORE_EXIT(-1)
+#endif
 
 
 //Debug Assertions
@@ -50,7 +51,6 @@ namespace ez {
 #else
 #define EZ_CORE_ASSERT(test, ...)
 #define EZ_CORE_STATIC_ASSERT(test, msg) 
-#endif
 #endif
 
 //Logging for client code

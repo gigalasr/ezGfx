@@ -9,7 +9,7 @@
 #include <glm/gtc/type_ptr.inl>
 #include <GLFW/glfw3.h>
 
-namespace ez::gfx {
+namespace ez {
 	GL_API::GL_API() {
 		gladLoadGL(glfwGetProcAddress);
 

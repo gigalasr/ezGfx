@@ -3,7 +3,7 @@
 #include <string>
 #include <glm/glm.hpp>
 
-namespace ez::gfx {
+namespace ez {
     class Shader {
     public:
         enum class Type {

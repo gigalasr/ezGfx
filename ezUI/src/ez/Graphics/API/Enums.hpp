@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ez::gfx {
+namespace ez {
 	enum class DrawMode {
 		TRIANGLES = 0,
 		TRIANGLE_STRIP

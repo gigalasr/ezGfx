@@ -7,7 +7,7 @@
 
 #include <glm/glm.hpp>
 
-namespace ez::gfx {
+namespace ez {
 	EZ_MAKE_STRONG_HANDLE(Brush);
 	EZ_MAKE_STRONG_HANDLE(Sprite);
 

@@ -4,7 +4,7 @@
 #include <glad/gl.h>
 #include <glm/gtc/type_ptr.hpp>
 
-namespace ez::gfx {
+namespace ez {
 	static void compile_shader(GLint shader, const std::string& source) {
 		const GLchar* glSource = source.c_str();
 		glShaderSource(shader, 1, &glSource, 0);

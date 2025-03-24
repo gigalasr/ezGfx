@@ -2,7 +2,7 @@
 #include "ez/Graphics/API/Enums.hpp"
 #include "ez/Graphics/API/Shader.hpp"
 
-namespace ez::gfx {
+namespace ez {
 	class GL_Shader : public Shader {
 	public:
 		GL_Shader(const std::initializer_list<std::pair<Shader::Type, const std::string&>>& shaders);

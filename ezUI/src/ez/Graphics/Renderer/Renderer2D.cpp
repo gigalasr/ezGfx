@@ -10,7 +10,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace ez::gfx {
+namespace ez {
 	constexpr int MAX_QUADS = 20000;
 
 	struct QuadData {
@@ -36,12 +36,12 @@ namespace ez::gfx {
 	void Renderer2D::init(uint32_t width, uint32_t height) {
 		EZ_PROFILE_FUNCTION();
 		EZ_CORE_DEBUG_ALLOC("Initializing Renderer2D");
-        s_device = RenderAPI::create(ez::gfx::API::OPENGL);
+        s_device = RenderAPI::create(ez::API::OPENGL);
 
 		//Load Shader
 		s_Data.quad_shader = s_device->create_shader({
-                                                             {Shader::Type::VERTEX,   ez::gfx::GL_QUAD_VERTEX_SHADER},
-                                                             {Shader::Type::FRAGMENT, ez::gfx::GL_QUAD_FRAGMENT_SHADER}
+                                                             {Shader::Type::VERTEX,   ez::GL_QUAD_VERTEX_SHADER},
+                                                             {Shader::Type::FRAGMENT, ez::GL_QUAD_FRAGMENT_SHADER}
                                                      });
         s_Data.quad_shader->bind();
 
