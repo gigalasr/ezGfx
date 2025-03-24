@@ -79,11 +79,12 @@ namespace ez {
 
         s_Data.quad_shader->set("uProj", proj);
         s_Data.quad_shader->set("uOffset", depthZ);
+		set_view_matrix();
 
         s_device->set_viewport(0, 0, width, height);
 	}
 
-	void Renderer2D::set_view_matrix(const glm::mat4& matrix) {
+	void Renderer2D::set_view_matrix() {
 		EZ_PROFILE_FUNCTION();
 		glm::mat4 view(1.0f);
 		view = glm::translate(view, glm::vec3(-0.5f * s_Data.render_width, 0.5f * s_Data.render_height, 0.0f));
