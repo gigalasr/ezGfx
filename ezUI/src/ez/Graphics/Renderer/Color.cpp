@@ -18,4 +18,4 @@ namespace ez {
         this->b = static_cast<uint8_t>(b * 255.0f);
         this->a = 255;
     }
-}
+}  // namespace ez

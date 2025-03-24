@@ -1,13 +1,14 @@
 #pragma once
-#include "ez/Core/Base.hpp"
-#include <string>
 #include <functional>
+#include <string>
+
+#include "ez/Core/Base.hpp"
 
 typedef struct GLFWwindow GLFWwindow;
 
 namespace ez {
-	class UIApp {
-	public:
+    class UIApp {
+       public:
         /**
          * Creates a new UIApp with the provided specification
          * @param spec Specification
@@ -17,36 +18,36 @@ namespace ez {
         /**
          * Destructor
          */
-		~UIApp();
+        ~UIApp();
 
         /**
          * Gets the instance of the UIApp
          * @return current instance of the App
          */
-		static UIApp& get();
+        static UIApp& get();
 
         /**
          * Runs the app
          */
-		void run();
+        void run();
 
         virtual void render(double time, double delta_time) = 0;
 
-    protected:
+       protected:
         int width;
         int height;
 
-    private:
+       private:
         /**
-         * The framebuffer size changed callback get called once the window has been resized
+         * The framebuffer size changed callback get called once the window has
+         * been resized
          * @param window pointer to the window that has been resized
          * @param width new window width
          * @param height new window height
          */
-		static void on_framebuffer_size_changed(GLFWwindow* window, int width, int height);
+        static void on_framebuffer_size_changed(GLFWwindow* window, int width, int height);
 
         static UIApp* s_instance;
         GLFWwindow* m_window;
-
-	};
-}
+    };
+}  // namespace ez

@@ -2,7 +2,7 @@
 #include <string>
 
 namespace ez {
-	const std::string GL_QUAD_VERTEX_SHADER = R"(
+    const std::string GL_QUAD_VERTEX_SHADER = R"(
 		#version 450 core
 
 		struct InstanceData {
@@ -48,8 +48,7 @@ namespace ez {
 		}
 	)";
 
-
-	const std::string GL_QUAD_FRAGMENT_SHADER = R"(
+    const std::string GL_QUAD_FRAGMENT_SHADER = R"(
 		#version 450 core
 
 		in		vec3			vTexCoords;
@@ -76,4 +75,4 @@ namespace ez {
 			//FragColor *= boxShadow(vec2(0.2, 0.2), vec2(0.8, 0.8), vTexCoords.xy, 0.75);
 		}
 	)";
-}
+}  // namespace ez

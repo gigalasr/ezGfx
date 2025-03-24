@@ -1,18 +1,9 @@
 #pragma once
 
 namespace ez {
-	enum class DrawMode {
-		TRIANGLES = 0,
-		TRIANGLE_STRIP
-	};
+    enum class DrawMode { TRIANGLES = 0, TRIANGLE_STRIP };
 
-	enum class Format {
-		RGB = 0,
-		RGBA
-	};
+    enum class Format { RGB = 0, RGBA };
 
-	enum class Filter {
-		NEAREST = 0,
-		LINEAR
-	};
-}
+    enum class Filter { NEAREST = 0, LINEAR };
+}  // namespace ez

@@ -4,7 +4,7 @@
 
 namespace ez {
     class StreamStorage {
-    public:
+       public:
         virtual ~StreamStorage() = default;
         virtual void push_back(void* data) = 0;
 
@@ -14,4 +14,4 @@ namespace ez {
         virtual void begin_frame() = 0;
         virtual void end_frame() = 0;
     };
-}
+}  // namespace ez

@@ -1,7 +1,5 @@
 #pragma once
 
 namespace ez {
-	class Scene {
-			
-	};
-}
+    class Scene {};
+}  // namespace ez

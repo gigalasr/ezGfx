@@ -1,32 +1,32 @@
 #pragma once
-#include <string>
 #include <fstream>
+#include <string>
 
 namespace ez::debug {
-	class ProfilingTimer {
-	public:
-		explicit ProfilingTimer(const std::string& name);
-		~ProfilingTimer();
+    class ProfilingTimer {
+       public:
+        explicit ProfilingTimer(const std::string& name);
+        ~ProfilingTimer();
 
-	private:
-		std::string m_name;
-		double m_start_time;
-	};
+       private:
+        std::string m_name;
+        double m_start_time;
+    };
 
-	class Profiler {
-	public:
-		static Profiler& get();
-		
-		void start_session(const std::string& name);
-		void add_entry(const std::string& name, double startTime, double duration);
-		void end_session();
-	
-	private:
-		std::string m_session_name;
-		std::ofstream m_file;
-		bool m_is_active;
-	};
-}
+    class Profiler {
+       public:
+        static Profiler& get();
+
+        void start_session(const std::string& name);
+        void add_entry(const std::string& name, double startTime, double duration);
+        void end_session();
+
+       private:
+        std::string m_session_name;
+        std::ofstream m_file;
+        bool m_is_active;
+    };
+}  // namespace ez::debug
 
 #if defined(__GNUC__) || (defined(__MWERKS__) && (__MWERKS__ >= 0x3000)) || (defined(__ICC) && (__ICC >= 600)) || defined(__ghs__)
 #define EZ_FUNC_SIG __PRETTY_FUNCTION__
@@ -51,8 +51,8 @@ namespace ez::debug {
 #define EZ_PROFILE_END_SESSION() ez::debug::Profiler::Get().EndSession()
 
 #define EZ_PROFILE_FUNCTION() ez::debug::ProfilingTimer(EZ_FUNC_SIG);
-#else 
-#define EZ_PROFILE_BEGIN_SESSION(name) 
-#define EZ_PROFILE_END_SESSION() 
-#define EZ_PROFILE_FUNCTION() 
+#else
+#define EZ_PROFILE_BEGIN_SESSION(name)
+#define EZ_PROFILE_END_SESSION()
+#define EZ_PROFILE_FUNCTION()
 #endif

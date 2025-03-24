@@ -6,22 +6,20 @@
 
 namespace ez {
 #if EZ_BUILD_DEBUG_MODE
-	Logger::Level Logger::s_current_level = Logger::Level::DEALLOC;
+    Logger::Level Logger::s_current_level = Logger::Level::DEALLOC;
 #else
-	Logger::Level Logger::s_current_level = Logger::Level::LOG;
+    Logger::Level Logger::s_current_level = Logger::Level::LOG;
 #endif
 
-	void Logger::set_level(Logger::Level level) {
-        s_current_level = level;
-	}
+    void Logger::set_level(Logger::Level level) { s_current_level = level; }
 
-	void Logger::init() {
+    void Logger::init() {
 #ifdef _WIN32
         HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
         DWORD dwMode = 0;
         GetConsoleMode(hOut, &dwMode);
         dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-		SetConsoleMode(hOut, dwMode);
+        SetConsoleMode(hOut, dwMode);
 #endif
-	}
-}
+    }
+}  // namespace ez
