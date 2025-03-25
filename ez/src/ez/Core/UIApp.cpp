@@ -25,7 +25,7 @@ namespace ez {
         s_instance = this;
 
         ez::Logger::init();
-        EZ_CORE_LOG("ezUI Version v", ez::VERSION_MAJOR, ".", ez::VERSION_MINOR, ".", ez::VERSION_PATCH);
+        EZ_CORE_LOG("ez Version v", ez::VERSION_MAJOR, ".", ez::VERSION_MINOR, ".", ez::VERSION_PATCH);
         EZ_PROFILE_BEGIN_SESSION("Startup");
 
         glfwInit();

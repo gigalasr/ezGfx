@@ -1,12 +1,3 @@
-[submodule "ezUI/ext/glm"]
-	path = ezUI/ext/glm
-	url = https://github.com/g-truc/glm
-[submodule "ezUI/ext/glfw"]
-	path = ezUI/ext/glfw
-	url = https://github.com/glfw/glfw
-[submodule "ezUI/ext/stb/stb"]
-	path = ezUI/ext/stb/stb
-	url = https://github.com/nothings/stb
 [submodule "ezUI/vendor/glfw"]
 	path = ez/vendor/glfw
 	url = https://github.com/glfw/glfw.git
