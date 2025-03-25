@@ -16,11 +16,11 @@ class App : public ez::UIApp {
     }
 
     void render(double time, double delta_time) override {
-        graphics->draw_rect(gradientBrush, glm::vec3(0, 0, 0), glm::vec3(width, height, 0), glm::vec3(0, 0, 0));
+        graphics->draw_rect(gradientBrush, glm::vec3(0, 0, 0), glm::vec3(width, height, 0), glm::vec3(0, 0, 0), 0);
 
         for (int x = 0; x < 16; x++) {
             for (int y = 0; y < 16; y++) {
-                graphics->draw_rect(defaultBrush, glm::vec3(x * 65, y * 65, sin(4 * time + x + y) * 10), glm::vec2(60, 60), glm::vec3(0));
+                graphics->draw_rect(defaultBrush, glm::vec3(30 + x * 35, 30 + y * 35, 20 * sin((x + y*0.5 + time))), glm::vec2(30, 30), glm::vec3(0,0,1), 0);
             }
         }
     }

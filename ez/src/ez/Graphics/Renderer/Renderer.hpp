@@ -72,7 +72,7 @@ namespace ez {
          * @param size width and height
          * @param rotation rotation around each axis
          */
-        void draw_rect(Brush brush, const glm::vec3& position, const glm::vec2& size, const glm::vec3& rotation);
+        void draw_rect(Brush brush, const glm::vec3& position, const glm::vec2& size, const glm::vec3& axies, float angle);
 
         /**
          * Draws a rectangle

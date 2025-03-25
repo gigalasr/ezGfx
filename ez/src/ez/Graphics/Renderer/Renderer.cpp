@@ -14,8 +14,8 @@ namespace ez {
     constexpr int MAX_QUADS = 20000;
 
     struct QuadData {
-        float data[8];
-        uint32_t data_2[4];
+        float transform[10];
+        uint32_t data_2[2];
     };
 
     Ref<Renderer> Renderer::create(Ref<RenderAPI> device, uint32_t width, uint32_t height) { 
@@ -109,10 +109,10 @@ namespace ez {
         return Brush((int32_t)m_brushes->push_back(colorData));
     }
 
-    void Renderer::draw_rect(Brush brush, const glm::vec3& position, const glm::vec2& size, const glm::vec3& rotation) {
+    void Renderer::draw_rect(Brush brush, const glm::vec3& position, const glm::vec2& size, const glm::vec3& axies, float angle) {
         EZ_PROFILE_FUNCTION();
 
-        QuadData data{{position.x, position.y, position.z, size.x, size.y, rotation.x, rotation.y, rotation.z}, {(uint32_t)brush.get(), 0, 0, 0}};
+        QuadData data{{position.x, position.y, position.z, size.x, size.y, axies.x, axies.y, axies.z, angle, 0}, {(uint32_t)brush.get(), 0}};
 
         m_quad_storage->push_back(&data);
     }
@@ -120,7 +120,7 @@ namespace ez {
     void Renderer::draw_rect(Brush brush, const glm::vec3& position, const glm::vec2& size) {
         EZ_PROFILE_FUNCTION();
 
-        QuadData data{{position.x, position.y, position.z, size.x, size.y, 0, 0, 0}, {(uint32_t)brush.get(), 0, 0, 0}};
+        QuadData data{{position.x, position.y, position.z, size.x, size.y, 0, 0, 0, 1, 0}, {(uint32_t)brush.get(), 0}};
 
         m_quad_storage->push_back(&data);
     }
