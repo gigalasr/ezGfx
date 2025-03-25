@@ -17,10 +17,9 @@ namespace ez {
        public:
         virtual ~RenderAPI() = default;
 
-        static std::shared_ptr<RenderAPI> create(ez::API api);
+        static Ref<RenderAPI> create(ez::API api);
 
         virtual Ref<Shader> create_shader(const std::initializer_list<std::pair<Shader::Type, const std::string&>>& shaders) = 0;
-
         virtual Ref<StreamStorage> create_stream_storage(uint32_t count, uint32_t stride) = 0;
         virtual Ref<TextureArray> create_texture_array(uint32_t width, uint32_t height, Format format, Filter filter) = 0;
 

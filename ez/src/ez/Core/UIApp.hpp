@@ -3,6 +3,8 @@
 #include <string>
 
 #include "ez/Core/Base.hpp"
+#include "ez/Graphics/API/RenderAPI.hpp"
+#include "ez/Graphics/Renderer/Renderer.hpp"
 
 typedef struct GLFWwindow GLFWwindow;
 
@@ -36,6 +38,8 @@ namespace ez {
        protected:
         int width;
         int height;
+        Ref<Renderer> graphics;
+        Ref<RenderAPI> device;
 
        private:
         /**

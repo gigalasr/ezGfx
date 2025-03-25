@@ -6,23 +6,26 @@
 #include "ez/Graphics/API/Enums.hpp"
 #include "ez/Graphics/API/RenderAPI.hpp"
 #include "ez/Graphics/Renderer/Color.hpp"
+#include "ez/Graphics/Renderer/Font.hpp"
 
 namespace ez {
     EZ_MAKE_STRONG_HANDLE(Brush);
     EZ_MAKE_STRONG_HANDLE(Sprite);
 
-    namespace Renderer2D {
+    class Renderer {
+       public:
         /**
          * Initializes the Renderer2D
+         * @param device the graphics device used to render
          * @param width width of the render target
          * @param height height of the render target
          */
-        void init(uint32_t width, uint32_t height);
+        static Ref<Renderer> create(Ref<RenderAPI> device, uint32_t width, uint32_t height);
 
         /**
          * Shuts the Renderer2D down and frees resources
          */
-        void shutdown();
+        ~Renderer();
 
         /**
          * Set the current view matrix
@@ -78,5 +81,22 @@ namespace ez {
          * @param size width and height
          */
         void draw_rect(Brush brush, const glm::vec3& position, const glm::vec2& size);
+
+       private:
+        /**
+         * Initializes the Renderer2D
+         * @param device the graphics device used to render
+         * @param width width of the render target
+         * @param height height of the render target
+         */
+        Renderer(Ref<RenderAPI> device, uint32_t width, uint32_t height);
+
+        Ref<RenderAPI> m_device;
+        Ref<TextureArray> m_brushes;
+        Ref<StreamStorage> m_quad_storage;
+        Ref<Shader> m_quad_shader;
+        Ref<Font> m_font;
+        uint32_t m_render_width;
+        uint32_t m_render_height;
     };  // namespace Renderer2D
 }  // namespace ez

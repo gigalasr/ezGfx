@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(ezUI)
+project(ez)
 
-add_subdirectory(ezUI)
+add_subdirectory(ez)
 add_subdirectory(examples)

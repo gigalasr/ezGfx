@@ -12,10 +12,10 @@ namespace ez {
     constexpr int VERSION_PATCH = 0;
 
     template <typename T>
-    using Scope = std::unique_ptr<T>;
+    using Owned = std::unique_ptr<T>;
 
     template <typename T, typename... Args>
-    constexpr Scope<T> create_scope(Args&&... args) {
+    constexpr Owned<T> create_owned(Args&&... args) {
         return std::make_unique<T>(std::forward<Args>(args)...);
     }
 

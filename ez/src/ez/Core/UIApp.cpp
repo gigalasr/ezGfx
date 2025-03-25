@@ -7,14 +7,13 @@
 
 #include "ez/Core/Base.hpp"
 #include "ez/Core/Profiling.hpp"
-#include "ez/Graphics/Renderer/Renderer2D.hpp"
 
 namespace ez {
     UIApp* ez::UIApp::s_instance = nullptr;
 
     void UIApp::on_framebuffer_size_changed(GLFWwindow* window, int width, int height) {
         if (width > 0 && height > 0) {
-            Renderer2D::set_render_size(width, height);
+            UIApp::get().graphics->set_render_size(width, height);
             UIApp::get().width = width;
             UIApp::get().height = height;
         }
@@ -26,10 +25,8 @@ namespace ez {
         s_instance = this;
 
         ez::Logger::init();
-
-        EZ_PROFILE_BEGIN_SESSION("Startup");
-
         EZ_CORE_LOG("ezUI Version v", ez::VERSION_MAJOR, ".", ez::VERSION_MINOR, ".", ez::VERSION_PATCH);
+        EZ_PROFILE_BEGIN_SESSION("Startup");
 
         glfwInit();
         glfwSetErrorCallback(error_callback);
@@ -49,7 +46,8 @@ namespace ez {
         glfwSetFramebufferSizeCallback(m_window, UIApp::on_framebuffer_size_changed);
         glfwSetWindowUserPointer(m_window, this);
 
-        Renderer2D::init(width, height);
+        device = RenderAPI::create(ez::API::OPENGL);
+        graphics = Renderer::create(device, width, height);
 
         EZ_PROFILE_END_SESSION();
     }
@@ -57,7 +55,6 @@ namespace ez {
     UIApp::~UIApp() {
         EZ_PROFILE_BEGIN_SESSION("shutdown");
 
-        Renderer2D::shutdown();
         glfwTerminate();
 
         EZ_PROFILE_END_SESSION();
@@ -78,9 +75,9 @@ namespace ez {
             frameRate += std::to_string((1 / delta_time));
             glfwSetWindowTitle(m_window, frameRate.c_str());
 
-            Renderer2D::begin_frame();
-            render(currentFrameTime, delta_time);
-            Renderer2D::end_frame();
+            graphics->begin_frame();
+              render(currentFrameTime, delta_time);
+            graphics->end_frame();
 
             glfwSwapBuffers(m_window);
             lastFrameTime = currentFrameTime;
